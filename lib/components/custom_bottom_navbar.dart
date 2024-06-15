@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_types, prefer_typing_uninitialized_variables
+import 'package:VEC_dickyderiyanto/constant/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -21,14 +22,14 @@ class CustomBottomNavbar extends StatelessWidget {
       screens: _buildScreens(),
       items: _navbarItems(),
       confineInSafeArea: true,
-      backgroundColor: Colors.red,
+      backgroundColor: AppColors.appWave1,
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
       stateManagement: true,
       hideNavigationBar: false,
       decoration: NavBarDecoration(
         borderRadius: BorderRadius.circular(10),
-        colorBehindNavBar: Colors.red,
+        colorBehindNavBar: AppColors.appWave1,
       ),
       popAllScreensOnTapOfSelectedTab: true,
       popActionScreens: PopActionScreensType.all,

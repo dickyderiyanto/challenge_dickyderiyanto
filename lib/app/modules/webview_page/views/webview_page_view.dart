@@ -1,3 +1,4 @@
+import 'package:VEC_dickyderiyanto/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -35,7 +36,8 @@ class WebviewPageView extends GetView<WebviewPageController> {
               },
             ),
           )
-          ..loadRequest(Uri.parse('https://www.youtube.com/watch?v=lpnKWK-KEYs')),
+          ..loadRequest(
+              Uri.parse('https://www.youtube.com/watch?v=lpnKWK-KEYs')),
       ),
     );
   }

@@ -1,5 +1,7 @@
+import 'package:VEC_dickyderiyanto/app/modules/login/views/login_view.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import '../../../constant/variables.dart';
 import '../models/login_model.dart';
 
@@ -22,6 +24,30 @@ class AuthRemoteDatasource {
     } catch (e) {
       Get.snackbar("Login Failed", e.toString());
       throw Exception('Failed to load data');
+    }
+  }
+
+  Future<void> logout() async {
+    String url = "${Variables.baseUrl}/sign-out";
+    final storage = GetStorage();
+    final token = storage.read('token');
+
+    final response = await Dio().post(
+      url,
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      ),
+    );
+
+    if (response.statusCode == 200) {
+      storage.remove('token');
+      storage.write('isLoggedIn', false);
+      Get.offAll(() => const LoginView());
+    } else {
+      Get.snackbar('Error', response.statusMessage.toString());
+      throw Exception('Failed to logout');
     }
   }
 }

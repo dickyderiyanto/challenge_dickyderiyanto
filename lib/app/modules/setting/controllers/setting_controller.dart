@@ -1,4 +1,6 @@
+import 'package:VEC_dickyderiyanto/app/data/datasource/auth_remote_datasource.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -21,5 +23,28 @@ class SettingController extends GetxController {
     } catch (e) {
       Get.snackbar('Error', 'Failed to download file');
     }
+  }
+
+  void logout() {
+    AuthRemoteDatasource authRemoteDatasource = AuthRemoteDatasource();
+    Get.dialog(AlertDialog(
+      title: const Text('Confirm Logout'),
+      content: const Text("Are you sure want to logout ?"),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Get.back();
+          },
+          child: const Text("Cancel"),
+        ),
+        TextButton(
+          onPressed: () async {
+            Get.back();
+            await authRemoteDatasource.logout();
+          },
+          child: const Text("Confirm"),
+        ),
+      ],
+    ));
   }
 }

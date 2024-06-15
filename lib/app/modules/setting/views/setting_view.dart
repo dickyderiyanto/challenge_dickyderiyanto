@@ -25,7 +25,7 @@ class SettingView extends GetView<SettingController> {
                 maxHeight: 110.0,
               ),
               width: MediaQuery.of(context).size.width,
-              color: Colors.blueGrey[800],
+              color: AppColors.appWave1,
               padding: const EdgeInsets.symmetric(
                 horizontal: 20.0,
               ),
@@ -59,7 +59,7 @@ class SettingView extends GetView<SettingController> {
                           ),
                         ),
                         Text(
-                          "driver-cahya.jessindo.com",
+                          "driver-cahya@gmail.com",
                           style: TextStyle(
                             fontSize: 12.0,
                             color: Colors.white,
@@ -149,15 +149,18 @@ class SettingView extends GetView<SettingController> {
             ),
             Card(
               child: Container(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    children: [
-                      ElevatedButton.icon(
+                color: AppColors.appWave1,
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
                         onPressed: () {
                           controller.downloadFile();
                         },
                         icon: const Icon(
-                          Icons.remove_circle_outline,
+                          Icons.download,
                           size: 14,
                           color: AppColors.appWave1,
                         ),
@@ -169,12 +172,15 @@ class SettingView extends GetView<SettingController> {
                           ),
                         ),
                       ),
-                      ElevatedButton.icon(
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
                         onPressed: () {
                           Get.toNamed(Routes.WEBVIEW_PAGE);
                         },
                         icon: const Icon(
-                          Icons.logout_sharp,
+                          Icons.open_in_browser,
                           size: 14,
                           color: AppColors.appWave1,
                         ),
@@ -186,15 +192,12 @@ class SettingView extends GetView<SettingController> {
                           ),
                         ),
                       ),
-                      ElevatedButton.icon(
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
                         onPressed: () {
-                          // AuthLocalDatasource().removeAuthData();
-                          // Navigator.pushReplacement(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => const LoginPage(),
-                          //   ),
-                          // );
+                          controller.logout();
                         },
                         icon: const Icon(
                           Icons.logout_sharp,
@@ -209,8 +212,10 @@ class SettingView extends GetView<SettingController> {
                           ),
                         ),
                       ),
-                    ],
-                  )),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),

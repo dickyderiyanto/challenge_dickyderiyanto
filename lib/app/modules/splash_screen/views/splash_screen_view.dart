@@ -10,6 +10,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => SplashScreenController());
     Timer(const Duration(seconds: 3), () {
       controller.auth();
     });

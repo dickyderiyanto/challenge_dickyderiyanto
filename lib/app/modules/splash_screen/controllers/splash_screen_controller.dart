@@ -18,7 +18,7 @@ class SplashScreenController extends GetxController {
       // ignore: unrelated_type_equality_checks
       print(token);
     } else {
-      Get.offAllNamed(Routes.SPLASH_SCREEN);
+      Get.offAllNamed(Routes.LOGIN);
     }
     @override
     void onInit() async {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../constant/colors.dart';
 import '../../../data/models/user_profile.dart';
 import '../controllers/edit_profile_controller.dart';
 
@@ -71,12 +72,21 @@ class EditProfileView extends GetView<EditProfileController> {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.appWave1,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(100),
+                ),
+              ),
               onPressed: () {
                 if (controller.validateInputs(userProfile)) {
                   controller.updateUserProfile(userProfile);
                 }
               },
-              child: const Text('Update Profile'),
+              child: const Text(
+                'Update Profile',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ],
         ),

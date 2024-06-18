@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "challenge_dickyderiyanto" "\0"
+            VALUE "FileDescription", "VEC-DickyDeriyanto" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "challenge_dickyderiyanto" "\0"
+            VALUE "InternalName", "VEC-DickyDeriyanto" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "challenge_dickyderiyanto.exe" "\0"
-            VALUE "ProductName", "challenge_dickyderiyanto" "\0"
+            VALUE "OriginalFilename", "VEC-DickyDeriyanto.exe" "\0"
+            VALUE "ProductName", "VEC-DickyDeriyanto" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

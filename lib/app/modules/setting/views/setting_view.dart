@@ -1,3 +1,5 @@
+import 'package:VEC_dickyderiyanto/app/data/datasource/api_service.dart';
+import 'package:VEC_dickyderiyanto/app/data/datasource/check_response_datasource.dart';
 import 'package:VEC_dickyderiyanto/app/routes/app_pages.dart';
 import 'package:VEC_dickyderiyanto/constant/colors.dart';
 import 'package:flutter/material.dart';
@@ -7,145 +9,102 @@ import 'package:get/get.dart';
 import '../controllers/setting_controller.dart';
 
 class SettingView extends GetView<SettingController> {
-  const SettingView({super.key});
+  final APIService dataSource = APIService();
+  final CheckResponseDatasource response = CheckResponseDatasource();
+  SettingView({super.key});
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => SettingController());
+    controller.fetchUserProfile();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SettingView'),
+        title: const Text('Profil'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         controller: ScrollController(),
         child: Column(
           children: [
-            Container(
-              constraints: const BoxConstraints(
-                maxHeight: 110.0,
-              ),
-              width: MediaQuery.of(context).size.width,
-              color: AppColors.appWave1,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20.0,
-              ),
-              child: Row(
-                children: [
-                  const CircleAvatar(
-                    radius: 30.0,
-                    backgroundImage:
-                        NetworkImage("https://i.ibb.co/PGv8ZzG/me.jpg"),
-                  ),
-                  const SizedBox(
-                    width: 8.0,
-                  ),
-                  const Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Hello",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10.0,
-                          ),
-                        ),
-                        Text(
-                          "Driver Cahya",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          "driver-cahya@gmail.com",
-                          style: TextStyle(
-                            fontSize: 12.0,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 8.0,
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: CircleAvatar(
-                      radius: 16.0,
-                      backgroundColor: Colors.blueGrey[900],
-                      child: const Icon(
-                        Icons.edit,
-                        size: 12.0,
-                        color: Colors.white,
+            Obx(() {
+              return controller.user.value == null
+                  ? const Center(child: const CircularProgressIndicator())
+                  : Container(
+                      constraints: const BoxConstraints(
+                        maxHeight: 110.0,
                       ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(
-                left: 20.0,
-                top: 20.0,
-                right: 20.0,
-                bottom: 0.0,
-              ),
-              child: Card(
-                child: Container(
-                  padding: const EdgeInsets.all(20.0),
-                  child: const Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Icon(Icons.store_sharp),
-                            Text(
-                              "25",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              "Total Toko",
-                              style: TextStyle(
-                                fontSize: 10.0,
-                              ),
-                            ),
-                          ],
-                        ),
+                      width: MediaQuery.of(context).size.width,
+                      color: AppColors.appWave1,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0,
                       ),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Icon(Icons.store_mall_directory_sharp),
-                            Text(
-                              "10",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 30.0,
+                            backgroundImage: NetworkImage(
+                                controller.user.value!.data.profilePicture),
+                            child: controller
+                                    .user.value!.data.profilePicture.isEmpty
+                                ? Image.asset(
+                                    "assets/images/default_profil.png")
+                                : null,
+                          ),
+                          const SizedBox(
+                            width: 8.0,
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "Hello",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 10.0,
+                                  ),
+                                ),
+                                Text(
+                                  controller.user.value!.data.name,
+                                  style: const TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  controller.user.value!.data.email,
+                                  style: const TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 8.0,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed(Routes.EDIT_PROFILE);
+                            },
+                            child: CircleAvatar(
+                              radius: 16.0,
+                              backgroundColor: Colors.blueGrey[900],
+                              child: const Icon(
+                                Icons.edit,
+                                size: 12.0,
+                                color: Colors.white,
                               ),
                             ),
-                            Text(
-                              "Toko Dikunjungi",
-                              style: TextStyle(
-                                fontSize: 10.0,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+                    );
+            }),
             // ignore: prefer_const_constructors
             SizedBox(
-              height: 10,
+              height: 80,
             ),
             Card(
               child: Container(
@@ -156,8 +115,8 @@ class SettingView extends GetView<SettingController> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton.icon(
-                        onPressed: () {
-                          controller.downloadFile();
+                        onPressed: () async {
+                          await dataSource.downloadFile();
                         },
                         icon: const Icon(
                           Icons.download,
@@ -186,6 +145,26 @@ class SettingView extends GetView<SettingController> {
                         ),
                         label: const Text(
                           "Open Webpage",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: AppColors.appWave1,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          response.setupDioInterceptor();
+                        },
+                        icon: const Icon(
+                          Icons.network_check,
+                          size: 14,
+                          color: AppColors.appWave1,
+                        ),
+                        label: const Text(
+                          "Check Response",
                           style: TextStyle(
                             fontSize: 14,
                             color: AppColors.appWave1,

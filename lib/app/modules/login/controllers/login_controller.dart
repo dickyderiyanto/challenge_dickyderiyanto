@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../../../components/custom_bottom_navbar.dart';
-import '../../../data/datasource/auth_remote_datasource.dart';
+import '../../../data/datasource/api_service.dart';
 import '../../../data/models/login_model.dart';
 
 class LoginController extends GetxController {
@@ -21,7 +21,7 @@ class LoginController extends GetxController {
     if (passContr.text.length < 8) {
       errorMessage.value = 'Password must be at leats 8 character';
     }
-    AuthRemoteDatasource authRemoteDataSource = AuthRemoteDatasource();
+    APIService authRemoteDataSource = APIService();
     isLoading.value = true;
     final storage = GetStorage();
 
@@ -33,7 +33,8 @@ class LoginController extends GetxController {
           countryCode: countryCode.value,
         ),
       );
-      if (value.status == 0) {
+      // ignore: unnecessary_null_comparison
+      if (value != null) {
         storage.write('token', value.data.token.toString());
         storage.write('isLoggedIn', true);
         Get.snackbar('Success', 'Login Successful');
@@ -41,6 +42,7 @@ class LoginController extends GetxController {
         print(value.data);
       }
     } catch (e) {
+      passContr.clear();
       // Get.snackbar("Error", "Login Failed: $e");
     } finally {
       isLoading.value = false; // Set loading state to false

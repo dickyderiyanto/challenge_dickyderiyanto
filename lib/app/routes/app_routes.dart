@@ -8,6 +8,7 @@ abstract class Routes {
   static const SETTING = _Paths.SETTING;
   static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
   static const WEBVIEW_PAGE = _Paths.WEBVIEW_PAGE;
+  static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
 }
 
 abstract class _Paths {
@@ -17,4 +18,5 @@ abstract class _Paths {
   static const SETTING = '/setting';
   static const SPLASH_SCREEN = '/splash-screen';
   static const WEBVIEW_PAGE = '/webview-page';
+  static const EDIT_PROFILE = '/edit-profile';
 }

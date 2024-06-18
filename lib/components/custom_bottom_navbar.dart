@@ -48,7 +48,7 @@ class CustomBottomNavbar extends StatelessWidget {
 }
 
 List<Widget> _buildScreens() {
-  return [const HomeView(), SettingView()];
+  return [HomeView(), SettingView()];
 }
 
 List<PersistentBottomNavBarItem> _navbarItems() {
@@ -60,8 +60,8 @@ List<PersistentBottomNavBarItem> _navbarItems() {
       inactiveColorPrimary: Colors.white,
     ),
     PersistentBottomNavBarItem(
-      icon: const Icon(CupertinoIcons.settings),
-      title: ("Setting"),
+      icon: const Icon(CupertinoIcons.profile_circled),
+      title: ("Profil"),
       activeColorPrimary: Colors.white,
       inactiveColorPrimary: Colors.white,
     ),

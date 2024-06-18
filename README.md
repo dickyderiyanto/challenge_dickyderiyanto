@@ -1,10 +1,9 @@
 # VEC-DickyDeriyanto
-
-<img src="https://ibb.co.com/Q9f8TG1" width=50% height=50%>
-<img src="https://ibb.co.com/6gVyB56" width=50% height=50%>
-<img src="https://ibb.co.com/7R3d06C" width=50% height=50%>
-<img src="https://ibb.co.com/pxDqGrT" width=50% height=50%>
-<img src="https://ibb.co.com/HY1Zntk" width=50% height=50%>
+<a href="https://ibb.co.com/Q9f8TG1"><img src="https://i.ibb.co.com/ZdVHFCk/Screenshot-1718704018.png" width=30% height=30% alt="Screenshot-1718704018" border="0" /></a>
+<a href="https://ibb.co.com/6gVyB56"><img src="https://i.ibb.co.com/Pw3rQ8B/Screenshot-1718704022.png" width=30% height=30% alt="Screenshot-1718704022" border="0" /></a>
+<a href="https://ibb.co.com/7R3d06C"><img src="https://i.ibb.co.com/D8BHjSW/Screenshot-1718704052.png" width=30% height=30% alt="Screenshot-1718704052" border="0" /></a>
+<a href="https://ibb.co.com/pxDqGrT"><img src="https://i.ibb.co.com/XbBHNkP/Screenshot-1718704057.png" width=30% height=30% alt="Screenshot-1718704057" border="0" /></a>
+<a href="https://ibb.co.com/HY1Zntk"><img src="https://i.ibb.co.com/Dksd59S/Screenshot-1718704263.png" width=30% height=30% alt="Screenshot-1718704263" border="0" /></a>
 
 ## Getting Started
 

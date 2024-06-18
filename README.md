@@ -2,7 +2,8 @@
 
 
 
-## Getting Started![Screenshot_1718704263](https://github.com/dickyderiyanto/challenge_dickyderiyanto/assets/34432817/727f36c0-11a6-4c02-97a4-a8e2ba774e7c)
+## Getting Started
+![Screenshot_1718704263](https://github.com/dickyderiyanto/challenge_dickyderiyanto/assets/34432817/727f36c0-11a6-4c02-97a4-a8e2ba774e7c)
 ![Screenshot_1718704057](https://github.com/dickyderiyanto/challenge_dickyderiyanto/assets/34432817/916ead96-f73e-40bf-8a4c-8dbcebb266e1)
 ![Screenshot_1718704052](https://github.com/dickyderiyanto/challenge_dickyderiyanto/assets/34432817/96b91161-1662-48c8-9930-fdf97167ce66)
 ![Screenshot_1718704022](https://github.com/dickyderiyanto/challenge_dickyderiyanto/assets/34432817/4874ea8c-7a4c-4012-9cf2-cfcb966dfee4)
